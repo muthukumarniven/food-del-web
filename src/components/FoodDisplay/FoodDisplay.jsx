@@ -4,8 +4,11 @@ import { StoreContext } from '../../context/StoreContext'
 import FoodItem from '../FoodItem/FoodItem'
 
 
-const FoodDisplay = ({category}) => {
+
+const FoodDisplay = ({ category }) => {
+    console.log(category);
     
+
     const { food_list } = useContext(StoreContext)
 
 
@@ -13,8 +16,10 @@ const FoodDisplay = ({category}) => {
         <div className='food-display' id='food-display'>
             <h2>Top dishes near you</h2>
             <div className="food-display-list">
-                {food_list.map((value, index)=>{
-                    return  <FoodItem key={index} id={value._id} name={value.name} image={value.image} price={value.price} description={value.description} category={value.category} />
+                {food_list.map((value, index) => {
+                    if (category === "All" || category === value.category) {
+                        return <FoodItem key={index} id={value._id} name={value.name} image={value.image} price={value.price} description={value.description} category={value.category} />
+                    }
                 })}
             </div>
         </div>
