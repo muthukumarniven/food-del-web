@@ -7,7 +7,7 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
 
     const addToCard = (itemId) => {
-        if (!cartItems[itemId]) {
+        if (!cartItems[itemId]) {                                                                                                                                                                      
             setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         }
         else {
@@ -15,9 +15,9 @@ const StoreContextProvider = (props) => {
         }
     } 
 
+
     const removeFormCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
-
     }
 
     useEffect(() => {
